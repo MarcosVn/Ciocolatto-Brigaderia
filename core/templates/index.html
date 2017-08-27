@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+ 
+
+{% block title %} teste {% endblock %} 
+
+{% block conteudo %}
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Bem vindo ao nosso site!</div>
+                <div class="intro-heading">Encontre aqui os melhores brigadeiros veganos</div>
+                <a href="#services" class="page-scroll btn btn-xl">Veja mais</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Produtos</h2>
+                    <h3 class="section-subheading text-muted">Encontre aqui o melhor brigadeiro!</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Faça a compra pelo site</h4>
+                    <p class="text-muted">Compre com poucos cliques os melhores brigadeiros veganos.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-gift fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Receba rapidamente em sua casa</h4>
+                    <p class="text-muted">Receba em sua casa os brigadeiros de feitos com o carinho de quem ama brigadeiro.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-cutlery fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Desfrute dos nossos produtos 100% veganos!</h4>
+                    <p class="text-muted">Aprecie nossos brigadeiros feitos com ingredientes nobres, 100% veganos e tenha uma experiência única.</p>
+                </div>
+
+                <div class="col-lg-12 text-center">
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-xl"><a style="color: white; "href="{% url 'produtos' %}">Veja a Lista de Produtos</a></button><p></p></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}
+
+ 
