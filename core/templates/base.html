@@ -121,6 +121,7 @@
 
 
 </nav>
+
     {% block conteudo %}
     {% endblock %}
 
@@ -136,32 +137,35 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm" method="POST">
+                        {% csrf_token %}
+
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Digite aqui seu nome" id="name" required data-validation-required-message="Por favor, insira seu nome.">
+                                    <input type="text" class="form-control" placeholder="Digite aqui seu nome" id="name" name="name" required data-validation-required-message="Por favor, insira seu nome.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Digite aqui seu email" id="email" required data-validation-required-message="Por favor, insira seu e-mail.">
+                                    <input type="email" class="form-control" placeholder="Digite aqui seu email" id="email" name="email" required data-validation-required-message="Por favor, insira seu e-mail.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Digite aqui seu telefone/celular" id="phone" required data-validation-required-message="Por favor, insira seu número.">
+                                    <input type="tel" class="form-control" name="subject" id="subject" placeholder="Digite aqui seu telefone/celular" required data-validation-required-message="Por favor, insira seu número.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Digite aqui sua mensagem" id="message" required data-validation-required-message="Por favor, insira uma mensagem."></textarea>
+                                    <textarea class="form-control" name="message" id="message" placeholder="Digite aqui sua mensagem" id="message" required data-validation-required-message="Por favor, insira uma mensagem."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" onclick="sendMail()" class="btn btn-xl">Envie sua mensagem</button>
+                                <button type="submit" name="submit" class="btn btn-xl">Envie sua mensagem</button>
                                 <p>
                                 <h3 style="color: white"> 160 Rua Machado Sidney 12245-650 São José dos Campos</h3>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Veja no mapa <i style="margin-left: 10px; font-size: 20px" class="fa fa-map-marker"></i></button>
@@ -221,19 +225,6 @@
 </html>
 
 <script type="text/javascript">
-
-
-
-    function sendMail() {
-    var link = "mailto:marcos.vnaraujo@gmail.com"
-             + "?cc=marcos.shl2@gmail.com"
-             + "&subject=" + escape("Ciocolatto: Contato Formulário")
-             + "&body=" + escape(document.getElementById('message').value)
-    ;
-
-    window.location.href = link;
- }
-
 
 
 $('#myModal').on('shown.bs.modal', (function() {

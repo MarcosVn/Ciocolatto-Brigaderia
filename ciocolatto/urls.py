@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', core_views.home, name='home'),
     url(r'^produtos/$', core_views.produtos, name='produtos'),
-
+    url(r'^eventos/$', core_views.eventos, name='eventos'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

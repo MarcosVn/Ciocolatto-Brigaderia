@@ -2,7 +2,7 @@
 {% load staticfiles %}
  
 
-{% block title %} teste {% endblock %} 
+{% block title %}Ciocolatto - Brigaderia Vegana{% endblock %} 
 
 {% block conteudo %}
     <header>
@@ -15,11 +15,13 @@
         </div>
     </header>
 
+
     <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Produtos</h2>
+                    <h2 class="section-heading">Produtos
+                    </h2>
                     <h3 class="section-subheading text-muted">Encontre aqui o melhor brigadeiro!</h3>
                 </div>
             </div>
@@ -51,10 +53,128 @@
 
                 <div class="col-lg-12 text-center">
                     <div id="success"></div>
-                    <button type="submit" class="btn btn-xl"><a style="color: white; "href="{% url 'produtos' %}">Veja a Lista de Produtos</a></button><p></p></div>
+                    <button class="btn btn-xl"><a style="color: white;" href="{% url 'produtos' %}">Veja a Lista de Produtos</a></button><p></p></div>
             </div>
         </div>
     </section>
+
+        <!-- Section: Sobre -->
+    <section id="about">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Agenda</h2>
+                    <h3 class="section-subheading text-muted">Saiba um pouco da nossa agenda de nossos eventos.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <ul class="timeline">
+                        {% for agenda in agendas %}
+                        <li>
+                            <div class="timeline-image">
+                                <img id="agenda1" class="img-circle img-responsive" src="" alt="">
+                            </div>
+
+                                <script>
+                                    var imageNumber = 1;
+                                    var current_image = document.getElementById('agenda'+imageNumber);
+
+                                    function corrigePath(path) {
+                                    var correct = path;
+                                    var correct = correct.replace("ciocolatto/", "");
+                                    document.getElementById('agenda'+imageNumber).src = correct;
+                                    }
+
+                                    corrigePath("{{agenda.foto.url}}");
+
+                                    imageNumber++;
+                                    current_image.id = 'agenda'+imageNumber;
+
+
+
+                                </script>
+
+                            
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">{{agenda.data}} - {{ agenda.titulo }}</h4>
+                                    <h4>{{agenda.descricao}}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"></p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4><a style="color: white" href="{% url 'eventos' %}">Veja todos 
+                                    <br>os
+                                    <br>eventos</a></h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Dupla -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Sobre Nós</h2>
+<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">A Ciocolatto surgiu quando seus criadores perceberam a dificuldade de encontrar brigadeiros veganos tão saborosos quanto os tradicionais. A partir daí, foram muitas fórmulas diferentes testadas, até chegar aos doces que temos hoje. Ninguém precisa se privar de gostosuras!<br></p>
+                </div>
+            </div>                    <h3 class="section-subheading text-muted">Veja alguns depoimentos de nossos clientes:</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <!--<img src="/static/img/team/1.jpg" class="img-responsive img-circle" alt="">-->
+                        <h4>Gabriela Santos</h4>
+                        <p class="text-muted">"Eu amei! Sou intolerante a lactose e faz mais de um ano que eu não provava algo que não fosse chocolate amargo. Pra quem tem o mesmo problema ou alergia a proteína do leite, eu mega recomendo!!"</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="http://www.facebook.com/profile.php?id=100004438717079"><i class="fa fa-facebook"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <!--<img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">-->
+                        <h4>Adriana Senter Gervasio</h4>
+                        <p class="text-muted">"O melhor brigadeiro vegano que já experimentei! Muito bom!!"</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="http://www.facebook.com/tai3k"><i class="fa fa-facebook"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <!--<img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">-->
+                        <h4>Renata Tosetto</h4>
+                        <p class="text-muted">"São todos deliciosos! Muito bem elaborados e sempre fresquinhos. Recomendo."</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="http://www.facebook.com/tai3k"><i class="fa fa-facebook"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
 
 
 
