@@ -47,7 +47,25 @@
 
     <a class="navbar-brand page-scroll" href="{% url 'home' %}""><img style="cursor: pointer" class="logo" src="{% static 'img/logo.png' %}"></img></a>
 
+    
+    <div class="col-md-4">
+        {% if messages %}
+                <p>
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endif %}
+                    {% if message.tags == 'success' %}
+                        <div class="alert alert-success alert-dismissable"><br><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+    </div>
+
+
+
     <div class="container">
+                
         <div class="navbar-header page-scroll">
             <a class="page-scroll" style="color: white!important"; href="https://www.facebook.com/ciocolattobrigaderia"><img src="{% static 'img/face_26.png" style="margin-top: 9px; margin-left: 20px;" class="logo_mob"></img></a>
             <a class="page-scroll" style="color: white!important"; href="https://www.instagram.com/ciocolattobrigaderia/"><img src="{% static 'img/insta.png" style="margin-top: 6px;" class="logo_mob"></img></a>
@@ -126,11 +144,12 @@
     {% endblock %}
 
 
-
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
+
+
                     <h2 class="section-heading">Contate-nos</h2>
                     <h3 class="section-subheading text-muted-white">Mande sua sugestão, dúvida ou podemos ter um bate-papo.</h3>
                 </div>
@@ -152,13 +171,13 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" name="subject" id="subject" placeholder="Digite aqui seu telefone/celular" required data-validation-required-message="Por favor, insira seu número.">
+                                    <input type="tel" class="form-control" name="subject" id="subject" placeholder="Digite aqui o assunto" required data-validation-required-message="Por favor, insira o assunto.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" placeholder="Digite aqui sua mensagem" id="message" required data-validation-required-message="Por favor, insira uma mensagem."></textarea>
+                                    <textarea class="form-control" name="message" id="message" placeholder="Digite aqui sua mensagem, número de telefone e/ou outra informação que desejar" id="message" required data-validation-required-message="Por favor, insira uma mensagem."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -225,7 +244,6 @@
 </html>
 
 <script type="text/javascript">
-
 
 $('#myModal').on('shown.bs.modal', (function() {
   var mapIsAdded = false;

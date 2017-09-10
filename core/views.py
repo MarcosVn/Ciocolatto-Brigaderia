@@ -21,12 +21,14 @@ def home(request):
 	if request.method == 'POST':
 		email_usuario = request.POST.get('email')
 
-		mensagem = 'Nome: %s\n\nMensagem:%s' % (request.POST.get('name'), request.POST.get('message'))
+		mensagem = 'Nome: %s\n\nMensagem enviada:%s' % (request.POST.get('name'), request.POST.get('message'))
 		assunto = request.POST.get('subject')
 		
 		email = EmailMessage(assunto, mensagem, to=['marcos.vnaraujo@gmail.com'])
 		email.send()
 
+
+		messages.success(request, 'Seu contato foi enviado com sucesso! Clique no x para fechar esta mensagem.')
 		return redirect(reverse('home'))
 
 	return render(request, 'index.html', {'agendas': eventos})
