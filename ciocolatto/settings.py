@@ -10,6 +10,24 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 import os
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_setting(setting):
+    """ Get the environment setting or return exception """
+    try:
+        return os.environ[setting]
+    except KeyError:
+        error_msg = "Set the %s env variable" % setting
+        raise ImproperlyConfigured(error_msg)
+
+SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
+
+# By default, be at least somewhat secure with our session cookies.
+SESSION_COOKIE_HTTPONLY = True
+
+# Set this to true if you are using https
+SESSION_COOKIE_SECURE = False
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -17,15 +35,11 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
 
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "ciocolatto/static"),
     # '/var/www/static/',
 )
-
-
-
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -35,9 +49,11 @@ STATICFILES_DIRS = (
 SECRET_KEY = '-9g4==5fwxr)zq43^!l)da*#$6#-0qp5rs9c(exo@w(#kn+i8j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ciocolatto.com.br', 'www.ciocolatto.com.br', '165.227.70.222']
+
+INTERNAL_IPS = ('127.0.0.1')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -45,6 +61,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'marcos.vnaraujo@gmail.com'
 EMAIL_HOST_PASSWORD = 'alves123'
+
+
+ADMINS = (
+    ('Marcos Alves', 'marcos.vnaraujo@gmail.com'),
+)
+MANAGERS = ADMINS
 
 # Application definition
 
@@ -69,12 +91,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ciocolatto.urls'
+DEV = False
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -104,8 +128,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ciocolatto',
         'USER': 'ciocolatto',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'ciocolatto',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -170,4 +194,5 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
+
 
