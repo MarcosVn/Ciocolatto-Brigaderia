@@ -24,7 +24,7 @@ def home(request):
 		mensagem = 'Nome: %s\n\nMensagem enviada:%s' % (request.POST.get('name'), request.POST.get('message'))
 		assunto = request.POST.get('subject')
 		
-		email = EmailMessage(assunto, mensagem, to=['marcos.vnaraujo@gmail.com'])
+		email = EmailMessage(assunto, mensagem, to=['jaquebelloni@gmail.com'])
 		email.send()
 
 
