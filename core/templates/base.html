@@ -40,12 +40,12 @@
             <ul class="nav navbar-nav navbar-right" style="margin-right: 160px;">
                     <li class="hidden"> <a href="#page-top"> </a> </li>
                     <li> <a class="page-scroll" href="#team" style="color: white!important; margin-right: 190px;"><i style="font-size: 17px;" class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;Sobre Nós&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                    <li><a class="page-scroll" style="color: white!important"; href="https://www.facebook.com/ciocolattobrigaderia"><img src="{% static 'img/face_26.png' %}" style="margin-top: -4px;"></img></a></li>
-                    <li><a class="page-scroll" style="color: white!important"; href="https://www.instagram.com/ciocolattobrigaderia/"><img src="{% static 'img/insta.png' %}" style="margin-top: -7px; margin-left: -15px"></img></a></li>
+                    <li><a class="page-scroll" style="color: white!important" target="_blank" href="https://www.facebook.com/ciocolattobrigaderia"><img src="{% static 'img/face_26.png' %}" style="margin-top: -4px;"/></a></li>
+                    <li><a class="page-scroll" style="color: white!important" target="_blank" href="https://www.instagram.com/ciocolattobrigaderia/"><img src="{% static 'img/insta.png' %}" style="margin-top: -7px; margin-left: -15px"/></a></li>
                 </ul></div>
 
 
-    <a class="navbar-brand page-scroll" href="{% url 'home' %}""><img style="cursor: pointer" class="logo" src="{% static 'img/logo.png' %}"></img></a>
+    <a class="navbar-brand page-scroll" href="{% url 'home' %}"><img style="cursor: pointer" class="logo" src="{% static 'img/logo.png' %}"/></a>
 
     
     <div class="col-md-4">
@@ -67,8 +67,8 @@
     <div class="container">
                 
         <div class="navbar-header page-scroll">
-            <a class="page-scroll" style="color: white!important"; href="https://www.facebook.com/ciocolattobrigaderia"><img src="{% static 'img/face_26.png" style="margin-top: 9px; margin-left: 20px;" class="logo_mob"></img></a>
-            <a class="page-scroll" style="color: white!important"; href="https://www.instagram.com/ciocolattobrigaderia/"><img src="{% static 'img/insta.png" style="margin-top: 6px;" class="logo_mob"></img></a>
+            <a class="page-scroll" style="color: white!important" target="_blank" href="https://www.facebook.com/ciocolattobrigaderia"><img src="{% static 'img/face_26.png'" style="margin-top: 9px; margin-left: 20px;" class="logo_mob"/></a>
+            <a class="page-scroll" style="color: white!important" target="_blank" href="https://www.instagram.com/ciocolattobrigaderia/"><img src="{% static 'img/insta.png'" style="margin-top: 6px;" class="logo_mob"/></a>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -87,7 +87,8 @@
                     <li> <a class="page-scroll" href="{% url 'home'%}#about"><i style="margin-right:10px; font-size: 27px;" class="fa fa-calendar"></i>Agenda</a></li>
                     <li><a class="page-scroll" href="{% url 'home'%}#contact"><i style="margin-right:10px; font-size: 27px;" class="fa fa-address-book"></i>Contato</a></li>
                     <li><a id="modal-launcher" data-toggle="modal" data-target="#login-modal" class="page-scroll" href="#"><i style="margin-right:10px; font-size: 27px;" class="fa fa-user"></i>Login</a></li>
-
+            </ul>
+        </div>
             
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -137,7 +138,7 @@
     </div>
 </div>
 
-
+    </div>
 </nav>
 
     {% block conteudo %}
@@ -177,7 +178,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" placeholder="Digite aqui sua mensagem, número de telefone e/ou outra informação que desejar" id="message" required data-validation-required-message="Por favor, insira uma mensagem."></textarea>
+                                    <textarea class="form-control" name="message" id="message" placeholder="Digite aqui sua mensagem, número de telefone e/ou outra informação que desejar" required data-validation-required-message="Por favor, insira uma mensagem."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -193,7 +194,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nossa Localização</h4>
+        <h4 class="modal-title" id="myModalLabel2">Nossa Localização</h4>
       </div>
       <div class="modal-body">
       </div>
@@ -229,12 +230,12 @@
                     <span class="copyright">Formas de Pagamento:&nbsp;&nbsp;&nbsp;</span>
 
 
-                    <li><img src="{% static 'img/visa-48px.png' %}"></img>&nbsp;</li>
-                    <li><img src="{% static 'img/mastercard-48px.png' %}"></img></li>
-                    <li>    <img src="{% static 'img/amex-48px.png' %}"></img>&nbsp;
-                    <li><img src="{% static 'img/hipercard-48px.png' %}"></img></li>
-                    <li>    <img src="{% static 'img/elo-48px.png' %}"></img>&nbsp;</li>
-                    <li>    <img src="{% static 'img/boleto-48px.png' %}"></img></li>
+                    <li><img src="{% static 'img/visa-48px.png' %}"/>&nbsp;</li>
+                    <li><img src="{% static 'img/mastercard-48px.png' %}"/></li>
+                    <li><img src="{% static 'img/amex-48px.png' %}"/>&nbsp;
+                    <li><img src="{% static 'img/hipercard-48px.png' %}"/></li>
+                    <li><img src="{% static 'img/elo-48px.png' %}"/>&nbsp;</li>
+                    <li><img src="{% static 'img/boleto-48px.png' %}"/></li>
                 </ul>
             </div>
         </div>
