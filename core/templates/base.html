@@ -5,10 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta name="author" content="Ciocolatto">
 
-    <title>{% block title %}Ciocolatto - Brigaderia Vegana{% endblock %}</title>
+
+    {% block meta %}
+    {% endblock %}
+
+    <title>{% block title %}Ciocolatto | Brigaderia Vegana{% endblock %}</title>
 
     <link rel="shortcut icon" href="favicon.ico"/>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -25,9 +29,7 @@
     <script src="{% static 'jquery/js/jquery.easing.min.js' %}"></script>
     <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/agency/cbpAnimatedHeader.js' %}"></script>
-    <script src="{% static 'js/agency/classie.js' %}"></script>
     <script src="{% static 'js/agency/agency.js' %}"></script>
-    <script src="{% static 'angular/js/angular.min.js' %}"></script>
     <script src="{% static 'js/bootstrap/jqBootstrapValidation.js' %}"></script>
     <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
 </head>
@@ -40,12 +42,12 @@
             <ul class="nav navbar-nav navbar-right" style="margin-right: 160px;">
                     <li class="hidden"> <a href="#page-top"> </a> </li>
                     <li> <a class="page-scroll" href="#team" style="color: white!important; margin-right: 190px;"><i style="font-size: 17px;" class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;Sobre Nós&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                    <li><a class="page-scroll" style="color: white!important" target="_blank" href="https://www.facebook.com/ciocolattobrigaderia"><img src="{% static 'img/face_26.png' %}" style="margin-top: -4px;"/></a></li>
-                    <li><a class="page-scroll" style="color: white!important" target="_blank" href="https://www.instagram.com/ciocolattobrigaderia/"><img src="{% static 'img/insta.png' %}" style="margin-top: -7px; margin-left: -15px"/></a></li>
+                    <li><a class="page-scroll" style="color: white!important" target="_blank" href="https://www.facebook.com/ciocolattobrigaderia"><img alt="ciocolatto facebook" src="{% static 'img/face_26.png' %}" style="margin-top: -4px;"/></a></li>
+                    <li><a class="page-scroll" style="color: white!important" target="_blank" href="https://www.instagram.com/ciocolattobrigaderia/"><img alt="ciocolatto instagram" src="{% static 'img/insta.png' %}" style="margin-top: -7px; margin-left: -15px"/></a></li>
                 </ul></div>
 
 
-    <a class="navbar-brand page-scroll" href="{% url 'home' %}"><img style="cursor: pointer" class="logo" src="{% static 'img/logo.png' %}"/></a>
+    <a class="navbar-brand page-scroll" href="{% url 'home' %}"><img alt="ciocolatto logo" style="cursor: pointer" class="logo" src="{% static 'img/logo.png' %}"/></a>
 
     
     <div class="col-md-4">
@@ -67,8 +69,8 @@
     <div class="container">
                 
         <div class="navbar-header page-scroll">
-            <a class="page-scroll" style="color: white!important" target="_blank" href="https://www.facebook.com/ciocolattobrigaderia"><img src="{% static 'img/face_26.png'" style="margin-top: 9px; margin-left: 20px;" class="logo_mob"/></a>
-            <a class="page-scroll" style="color: white!important" target="_blank" href="https://www.instagram.com/ciocolattobrigaderia/"><img src="{% static 'img/insta.png'" style="margin-top: 6px;" class="logo_mob"/></a>
+            <a class="page-scroll" style="color: white!important" target="_blank" href="https://www.facebook.com/ciocolattobrigaderia"><img alt="ciocolatto facebook mobile" src="{% static 'img/face_26.png' %}" style="margin-top: 9px; margin-left: 20px;" class="logo_mob"/></a>
+            <a class="page-scroll" style="color: white!important" target="_blank" href="https://www.instagram.com/ciocolattobrigaderia/"><img alt="ciocolatto instagram mobile" src="{% static 'img/insta.png' %}" style="margin-top: 6px;" class="logo_mob"/></a>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -86,7 +88,7 @@
                     <li> <a class="page-scroll" href="{% url 'home'%}#services"><i style="margin-right:10px; font-size: 27px;" class="fa fa-gift"></i>Produtos</a></li>
                     <li> <a class="page-scroll" href="{% url 'home'%}#about"><i style="margin-right:10px; font-size: 27px;" class="fa fa-calendar"></i>Agenda</a></li>
                     <li><a class="page-scroll" href="{% url 'home'%}#contact"><i style="margin-right:10px; font-size: 27px;" class="fa fa-address-book"></i>Contato</a></li>
-                    <li><a id="modal-launcher" data-toggle="modal" data-target="#login-modal" class="page-scroll" href="#"><i style="margin-right:10px; font-size: 27px;" class="fa fa-user"></i>Login</a></li>
+                    <!--<li><a id="modal-launcher" data-toggle="modal" data-target="#login-modal" class="page-scroll" href="#"><i style="margin-right:10px; font-size: 27px;" class="fa fa-user"></i>Login</a></li>-->
             </ul>
         </div>
             
@@ -217,7 +219,7 @@
 
 
 
-
+{% block footer %}
 <footer>
     <div class="container">
         <div class="row">
@@ -225,27 +227,28 @@
                 <span class="copyright">Copyright &copy; Ciocolatto 2017</span>
             </div>
             <div class="col-md-6">
+                <span class="copyright">Formas de Pagamento</span>
                 <ul class="list-inline social-buttons">
-                    
-                    <span class="copyright">Formas de Pagamento:&nbsp;&nbsp;&nbsp;</span>
-
-
-                    <li><img src="{% static 'img/visa-48px.png' %}"/>&nbsp;</li>
-                    <li><img src="{% static 'img/mastercard-48px.png' %}"/></li>
-                    <li><img src="{% static 'img/amex-48px.png' %}"/>&nbsp;
-                    <li><img src="{% static 'img/hipercard-48px.png' %}"/></li>
-                    <li><img src="{% static 'img/elo-48px.png' %}"/>&nbsp;</li>
-                    <li><img src="{% static 'img/boleto-48px.png' %}"/></li>
+                    <li><img alt="cartao visa forma de pagamento" src="{% static 'img/visa-48px.png' %}"/>&nbsp;</li>
+                    <li><img alt="cartao mastercard forma de pagamento" src="{% static 'img/mastercard-48px.png' %}"/></li>
+                    <li><img alt=" cartao amex forma de pagamento" src="{% static 'img/amex-48px.png' %}"/>&nbsp;
+                    <li><img alt="cartao hipercard forma de pagamento" src="{% static 'img/hipercard-48px.png' %}"/></li>
+                    <li><img alt="cartao elo forma de pagamento" src="{% static 'img/elo-48px.png' %}"/>&nbsp;</li>
+                    <li><img alt="boleto forma de pagamento" src="{% static 'img/boleto-48px.png' %}"/></li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
+{% endblock %}
+
+
 </body>
+
+
 </html>
 
 <script type="text/javascript">
-
 $('#myModal').on('shown.bs.modal', (function() {
   var mapIsAdded = false;
 
@@ -257,5 +260,4 @@ $('#myModal').on('shown.bs.modal', (function() {
     }    
   };
 })());
-
 </script>
