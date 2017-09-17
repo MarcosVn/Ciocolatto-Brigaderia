@@ -565,7 +565,7 @@ section h3.section-subheading {
 .timeline>li .timeline-image {
     z-index: 100;
     position: absolute;
-    left: 0;
+    left: 50%;
     width: 80px;
     height: 80px;
     margin-left: 0;
@@ -641,7 +641,7 @@ section h3.section-subheading {
         left: 50%;
         width: 100px;
         height: 100px;
-        margin-left: -50px;
+        margin-left: -100px;
     }
 
     .timeline>li .timeline-image h4 {
