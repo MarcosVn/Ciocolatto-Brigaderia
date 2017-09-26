@@ -1,4 +1,3 @@
-{% load compress %}
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -15,30 +14,29 @@
 
     <title>{% block title %}{% endblock %}</title>
     
-    {% compress css %}
-        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-        <link href="{% static 'css/agency.css' %}" rel="stylesheet">
-        <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-       <!-- <link href="//fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css" />-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
-        {% block css %} {% endblock %}
-    {% endcompress %}
-    
-    {% compress js inline %}
-        {% block js %} {% endblock %}
-        <script src="{% static 'js/jquery/jquery.js' %}"></script>
-        <script src="{% static 'jquery/js/jquery.easing.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/agency/cbpAnimatedHeader.js' %}"></script>
-        <script src="{% static 'js/agency/agency.js' %}"></script>
-        <script src="{% static 'js/bootstrap/jqBootstrapValidation.js' %}"></script>
-        <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
-    {% endcompress %}
 
+    {% block css %}{% endblock %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/agency.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	   <!-- <link href="//fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css" />-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+  
+    
+    {% block js %} {% endblock %}
+    <script src="{% static 'js/jquery/jquery.js' %}"></script>
+    <script src="{% static 'jquery/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/agency/cbpAnimatedHeader.js' %}"></script>
+    <script src="{% static 'js/agency/agency.js' %}"></script>
+    <script src="{% static 'js/bootstrap/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+    
 
 </head>
 
@@ -240,7 +238,6 @@
 </html>
 
 
-{% compress js %}
 <script type="text/javascript">
 $('#myModal').on('shown.bs.modal', (function() {
   var mapIsAdded = false;
@@ -254,4 +251,3 @@ $('#myModal').on('shown.bs.modal', (function() {
   };
 })());
 </script>
-{% endcompress %}
