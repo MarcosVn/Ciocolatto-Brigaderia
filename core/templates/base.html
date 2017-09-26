@@ -31,6 +31,7 @@
     {% block js %} {% endblock %}
     <script src="{% static 'js/jquery/jquery.js' %}"></script>
     <script src="{% static 'jquery/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.js' %}"></script>
     <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/agency/cbpAnimatedHeader.js' %}"></script>
     <script src="{% static 'js/agency/agency.js' %}"></script>
@@ -239,6 +240,12 @@
 
 
 <script type="text/javascript">
+$.stellar({
+    horizontalScrolling: false,
+    responsive: true
+});
+
+
 $('#myModal').on('shown.bs.modal', (function() {
   var mapIsAdded = false;
 
