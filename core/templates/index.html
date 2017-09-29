@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load compress %}
 {% load staticfiles %}
  
 {% block title %}Home | Ciocolatto Brigaderia Vegana{% endblock %} 
@@ -107,7 +106,8 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="subheading">{{agenda.data}} - {{ agenda.titulo }}</h4>
-                                    <h4>{{agenda.descricao}}</h4>
+                                    <br>
+                                    <h4>Veja em: <a href={{agenda.descricao}}><img alt="ciocolatto facebook" src="{% static 'img/face_26.png' %}" style="margin-top: -5px" /></a></a></h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted"></p>

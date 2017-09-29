@@ -21,8 +21,8 @@
                     <ul style="display: inline;">
                         {% for agenda in eventos %}
                         <li style="float: left; padding: 10px; margin: 20px;">
-                            <div class="">
-                                <img id="agenda1" class="img-circle img-responsive" src="" alt="">
+                            <div class="timeline-image">
+                                <img id="agenda1" style="margin-left: 20px" width=120 height=120 class="img-circle img-responsive" src="" alt="">
                             </div>
 
                                 <script>
@@ -48,7 +48,7 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="">{{agenda.data}} <br> {{ agenda.titulo }}</h4>
-                                    <h4>{{agenda.descricao}}</h4>
+                                    <h4>Veja em: <a href={{agenda.descricao}}><img alt="ciocolatto facebook" src="{% static 'img/face_26.png' %}" style="margin-top: -5px" /></a></a></h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted"></p>
