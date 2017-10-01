@@ -10,7 +10,7 @@ from django.conf import settings
 
 class Evento(models.Model):
     titulo = models.CharField(max_length=100)
-    descricao = models.CharField(max_length=200)
+    descricao = models.CharField(max_length=300, verbose_name='Link completo do Facebook:')
     data = models.DateField()
     foto = models.ImageField(upload_to='ciocolatto/static/img')
 
