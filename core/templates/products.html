@@ -19,83 +19,25 @@
                     <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     </div>
-            </div>                   
+            </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="/static/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Tradicional<p></h4>
-                        <p class="text-muted">Massa de leite condensado de soja, com chocolate belga amargo (54%) e um toque especial de café. Envolvido por pequenos pedaços de chocolate belga amargo.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Castanha de Caju<p></h4>
-                        <p class="text-muted">Massa de leite condensado de soja, com chocolate belga amargo (54%), pedacinhos de castanha de caju e um toque especial de café. Envolvido por pedacinhos de castanha de caju.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Nozes<p></h4>
-                        <p class="text-muted">Massa de leite condensado de soja, com chocolate belga amargo (54%), pedacinhos de nozes e um toque especial de café. Envolvido por farofa de nozes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="/static/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Amêndoas<p></h4>
-                        <p class="text-muted">Massa de leite condensado de soja, com chocolate belga amargo (54%), pedacinhos de amêndoas e um toque especial de café. Envolvido por lâminas de amêndoas.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Prestígio<p></h4>
-                        <p class="text-muted">Massa de leite condensado de soja, com chocolate belga amargo (54%) e um toque especial de café. Envolvido por coco fresco ralado.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Paçoca<p></h4>
-                        <p class="text-muted">Massa de leite condensado de soja e com a inconfundível Paçoquita. Envolvido por pedacinhos de amendoim.</p>
-                    </div>
-                </div>
+                {% for produto in produtos %}
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            {% if produto.get_primeira_foto %}
+                                <img src="{{ produto.get_primeira_foto.foto.url }}" style="width: 200px; height: 200px" class="img-responsive img-circle"/>
+                            {% else %}
+                                <img src="{% static 'img/semimg.gif' %}" alt="Produto sem imagem" style="width: 200px; height: 200px" class="img-responsive img-circle"/>
+                            {% endif %}
 
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Palha Italiana<p></h4>
-                        <p class="text-muted">Massa de leite condensado de soja, com chocolate belga amargo (54%), um toque especial de café e biscoito crocante. Envolvido por açúcar cristal orgânico.</p>
+                            <h4>{{ produto.nome }}<p></h4>
+                            <p class="text-muted">{{ produto.descricao }}</p>
+                        </div>
                     </div>
-                </div>
-
+                {% endfor %}
             </div>
         </div>
     </section>
-  
-
-    
-    
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nossa Localização</h4>
-      </div>
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock%}
+{% endblock %}

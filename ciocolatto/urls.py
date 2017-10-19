@@ -25,4 +25,4 @@ urlpatterns = [
     url(r'^produtos/$', core_views.produtos, name='produtos'),
     url(r'^eventos/$', core_views.eventos, name='eventos'),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

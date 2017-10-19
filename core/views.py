@@ -11,12 +11,13 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
-from .models import Evento
+from .models import Evento, Parceiro, Produto
 
 
 def home(request):
 	eventos = Evento.objects.all().order_by('-data')[:5]
-	context = {'agenda': eventos}
+	parceiros = Parceiro.objects.all()
+
 	if request.method == 'POST':
 		email_usuario = request.POST.get('email')
 
@@ -28,11 +29,14 @@ def home(request):
 		messages.success(request, 'Seu contato foi enviado com sucesso! Clique no x para fechar esta mensagem.')
 		return redirect(reverse('home'))
 
-	return render(request, 'index.html', {'agendas': eventos})
+	return render(request, 'index.html', {
+		'agendas': eventos,
+		'parceiros': parceiros})
 
 
 def produtos(request):
-	return render(request, 'products.html')
+	produtos = Produto.objects.all()
+	return render(request, 'products.html', {'produtos': produtos})
 
 
 def eventos(request):

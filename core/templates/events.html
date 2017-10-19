@@ -1,14 +1,10 @@
 {% extends 'base.html' %}
-{% load compress %}
 {% load staticfiles %}
- 
 {% block title %}Eventos | Ciocolatto Brigaderia Vegana{% endblock %} 
-
 
 {% block conteudo %}
     <section id="about">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Agenda</h2>
@@ -22,33 +18,12 @@
                         {% for agenda in eventos %}
                         <li style="float: left; padding: 10px; margin: 20px;">
                             <div class="timeline-image">
-                                <img id="agenda1" style="margin-left: 20px;width: 120px;height: 120px;"   class="img-circle img-responsive" src="" alt="">
+                                <img id="agenda1" style="margin-left: 20px;width: 120px;height: 120px;"   class="img-circle img-responsive" src="{{ agenda.foto.url }}" alt="">
                             </div>
-
-                                <script>
-                                    var imageNumber = 1;
-                                    var current_image = document.getElementById('agenda'+imageNumber);
-
-                                    function corrigePath(path) {
-                                    var correct = path;
-                                    var correct = correct.replace("ciocolatto/", "../");
-                                    document.getElementById('agenda'+imageNumber).src = correct;
-                                    }
-
-                                    corrigePath("{{agenda.foto.url}}");
-
-                                    imageNumber++;
-                                    current_image.id = 'agenda'+imageNumber;
-
-
-
-                                </script>
-
-                            
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="">{{agenda.data}} <br> {{ agenda.titulo }}</h4>
-                                    <h4>Veja em: <a href={{agenda.descricao}}><img alt="ciocolatto facebook" src="{% static 'img/face_26.png' %}" style="margin-top: -5px" /></a></a></h4>
+                                    <h4>Veja em: <a href={{ agenda.descricao }}><img alt="ciocolatto facebook" src="{% static 'img/face_26.png' %}" style="margin-top: -5px" /></a></a></h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted"></p>
@@ -61,22 +36,4 @@
             </div>
         </div>
     </section>
-
-    
-    
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nossa Localização</h4>
-      </div>
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock%}
+{% endblock %}
