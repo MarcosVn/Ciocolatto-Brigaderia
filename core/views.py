@@ -15,7 +15,7 @@ from .models import Evento, Parceiro, Produto
 
 
 def home(request):
-	eventos = Evento.objects.all().order_by('-data')[:5]
+	eventos = Evento.objects.all().order_by('data')[:5]
 	parceiros = Parceiro.objects.all()
 
 	if request.method == 'POST':
