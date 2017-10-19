@@ -40,7 +40,7 @@ def produtos(request):
 
 
 def eventos(request):
-	eventos = Evento.objects.all().order_by('-data')
+	eventos = Evento.objects.all().order_by('data')
 	return render(request, 'events.html', {'eventos': eventos})
 
 
