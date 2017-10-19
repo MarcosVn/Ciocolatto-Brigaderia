@@ -15,16 +15,8 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    </div>
-            </div>
-                </div>
-            </div>
-            <div class="row">
                 {% for produto in produtos %}
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="team-member">
                             {% if produto.get_primeira_foto %}
                                 <img src="{{ produto.get_primeira_foto.foto.url }}" style="width: 200px; height: 200px" class="img-responsive img-circle"/>
