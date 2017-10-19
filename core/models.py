@@ -21,7 +21,7 @@ class Evento(models.Model):
 class Produto(models.Model):
     nome = models.CharField(max_length=200)
     descricao = models.CharField(max_length=800)
-    preco = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal('0.0000'))
+    preco = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal('0.00'))
     data_add = models.DateTimeField(u'Data de cadastro', auto_now_add=True, null=True, blank=True)
 
     def get_primeira_foto(self):
